@@ -1,0 +1,46 @@
+<%- include('../header'); %>
+<%- include('../menu'); %>
+  <body>
+	<div class="container col-sm-4 col-offset-4">
+		<h2 class="mt-5 text-center"><span class="badge bg-secondary">N</span>Talk</h2>
+		
+	</div>
+	
+	<div class="container mt-5">
+	<h4>Adicionar</h4>
+		<form action="/contatos" method="post">
+			<div class="row">
+			  <div class="col-sm-5">
+				<input type="text" class="form-control" placeholder="Nome" name="contato[nome]">
+			  </div>
+			  <div class="col-sm-5">
+				<input type="email" class="form-control" placeholder="E-mail" name="contato[email]">
+			  </div>
+			  <div class="col d-grid gap-2">
+				<button type="submit" class="btn btn-success">Salvar</button>
+			  </div>
+			</div>		
+		</form>	
+		
+		<table class="table mt-5">
+		  <thead>
+			<tr>
+			  <th scope="col">ID</th>
+			  <th scope="col">Nome</th>
+			  <th scope="col">E-mail</th>
+			  <th scope="col">Ação</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<% contatos.forEach((contato, index) => { %> 
+				<tr>
+				  <td><%- index %></td>
+				  <td><%- contato.nome %></td>
+				  <td><%- contato.email %></td>
+				  <td><a href="/contatos/<%- index %>" class="btn btn-primary">Detalhes</a></td>
+				</tr>
+			<% }) %>
+		  </tbody>
+		</table>		
+	</div>
+ <%- include('../footer'); %>

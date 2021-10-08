@@ -1,0 +1,20 @@
+<%- include('../header'); %>
+  <body>
+	<div class="container col-sm-4 col-offset-4">
+		<h2 class="mt-5 text-center"><span class="badge bg-secondary">N</span>Talk - Login</h2>
+		<form class="mt-5" action="/entrar" method="post">
+		  <div class="mb-3">
+			<label for="nome" class="form-label">Nome</label>
+			<input type="text" class="form-control" name="usuario[nome]">
+		  </div>
+		  <div class="mb-3">
+			<label for="email" class="form-label">Email</label>
+			<input type="email" class="form-control" name="usuario[email]">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Entrar</button>
+
+		 </form>
+	</div>
+
+
+ <%- include('../footer'); %>
