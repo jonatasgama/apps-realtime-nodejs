@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const methodOverride = require('method-override');
+const error = require('./middleware/erro');
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +22,9 @@ consign({})
 .then('controllers')
 .then('routes')
 .into(app);
+
+app.use(error.notFound);
+app.use(error.serverError);
 
 app.listen(3000, () => {
 	console.log('ntalk rodando');
